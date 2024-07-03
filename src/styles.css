@@ -1,14 +1,123 @@
-/* * {
-    overflow-y: scroll;
-} */
-
 body {
-    background-color: black;
-    height: 98.5vh;
+    background-color: #e7dbb8;
     box-sizing: border-box;
-    border: solid white 1px;
+    border: solid #c5674a 1px;
+    overflow-y: scroll;
 }
 
 .header {
-    color: white;
+    color: #ce8a74;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 1000;
+}
+
+.content {
+    overflow-y: scroll;
+}
+
+.contentHeader {
+    font-size: 20px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.cardTitle {
+    width: 100%;
+}
+
+.card {
+    margin: .5rem;
+    padding: .5rem;
+    border: solid #c5674a 1px;
+    border-radius: 1rem;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    background-color:#ce8a74
+
+}
+
+.subCard {
+    margin: .25rem;
+    padding: .75rem;
+    border: solid #c5674a 1px;
+    border-radius: 1rem;
+    color: #c37f7c;
+    display: flex;
+    flex-direction: column;
+    background-color: #e7dbb8
+}
+
+.bigTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titleRow {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+
+}
+
+.gangLevel {
+    justify-self: end;
+    margin-right: .5rem;
+    border-radius: 1rem;
+    background: rgba(0,0,0,.1);
+    padding: .5rem;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    right: 2.5rem;
+}
+
+.levelOne {
+    background-color: rgba(50, 255, 50, .25);
+    color: green;
+}
+
+.levelTwo {
+    background-color: rgba(200,200,0, .25);
+    color: orange;
+}
+
+.levelThree {
+    background-color: rgba(255, 165, 0, .25);
+    color: red;
+}
+
+.levelFour {
+    background-color: rgba(0, 0, 0, .25);
+    color: purple;
+}
+
+.subCard {
+    margin-left: .5rem;
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.gangExpandBtn,
+.regionExpandBtn {
+    border-radius: 1rem;
+    border: none;
+    color: black;
+    background: none;
+    font-weight: bold;
+    width: 2rem;
+}
+
+.hidden {
+    display: none;
 }
