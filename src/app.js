@@ -57,13 +57,14 @@ $(function() {
 
     var renderGangs = function(parent) {
         var $table = $('<div class="bigTitle hidden"></div>')
+        $table.css({
+            'width': '90%',
+            'margin': '0 1rem'
+        })
         $table.appendTo(parent);
 
         var $gangText = $('<div class="titleRow"></div>')
         $gangText.text('Name')
-        $gangText.css({
-            'padding-left': '1.5rem',
-        })
         $gangText.appendTo($table)
 
         var $tierText = $('<div class="tierText"></div>')
