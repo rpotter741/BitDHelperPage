@@ -60,7 +60,7 @@ $(function() {
         $table.appendTo(parent);
 
         var $gangText = $('<div class="titleRow"></div>')
-        $gangText.text('Faction Name')
+        $gangText.text('Name')
         $gangText.css({
             'padding-left': '1.5rem',
         })
