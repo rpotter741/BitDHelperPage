@@ -98,7 +98,8 @@ select {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 100%;
+    width: 90%;
+    margin-left: 1rem;
 }
 
 .headerRow > * {

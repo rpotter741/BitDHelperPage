@@ -58,8 +58,8 @@ $(function() {
     var renderGangs = function(parent) {
         var $table = $('<div class="headerRow hidden"></div>')
         $table.css({
-            'width': '90%',
-            'margin': '0 1rem'
+            'width': '95%',
+            'margin-left': '1rem'
         })
         $table.appendTo(parent);
 
@@ -197,7 +197,7 @@ $(function() {
                 if (event.target.innerHTML === 'S') {
                     event.target.innerHTML = 'W';
                     gang.hold = 'W';
-                } else {
+                } else if (event.target.innerHTML === 'W') {
                     event.target.innerHTML = 'S';
                     gang.hold = 'S';
                 }
