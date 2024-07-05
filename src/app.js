@@ -27,7 +27,7 @@ $(function() {
             var $card = $(`<div class="card" id="${region}"></div>`)
             $card.appendTo($content);
 
-            var $titleRow = $('<div class="titleRow"></div>')
+            var $titleRow = $('<div class="regionTitleRow"></div>')
             $titleRow.appendTo($card);
             
             var $expandBtn = $('<button class="regionExpandBtn"></button>')
@@ -56,14 +56,14 @@ $(function() {
     }
 
     var renderGangs = function(parent) {
-        var $table = $('<div class="bigTitle hidden"></div>')
+        var $table = $('<div class="headerRow hidden"></div>')
         $table.css({
             'width': '90%',
             'margin': '0 1rem'
         })
         $table.appendTo(parent);
 
-        var $gangText = $('<div class="titleRow"></div>')
+        var $gangText = $('<div class="headerTitleRow"></div>')
         $gangText.text('Name')
         $gangText.appendTo($table)
 
@@ -203,7 +203,7 @@ $(function() {
                 }
             })
 
-            var $status = $('<input type="text" class="status"></input>');
+            var $status = $('<input type="number" class="status"></input>');
             $status.attr('value', gang.status)
             $status.appendTo($titleRow)
             $status.on('change', function(event) {
