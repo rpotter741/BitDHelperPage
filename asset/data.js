@@ -113,7 +113,7 @@ var gangData = {
         },
         {
             name: 'Skelebros',
-            leader: '',
+            leader: 'Skelechad',
             score: 4,
             tier: 'IV',
             hold: 'S',
@@ -364,7 +364,7 @@ var gangData = {
     ],
     "Gunhallow": [
         {
-            name: 'Dastard Bastards',
+            name: 'Dastardly Bastards',
             leader: 'The Gentleman',
             score: 5,
             tier: 'V',
