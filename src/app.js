@@ -9,7 +9,7 @@ $(function() {
 
     var $headerText = $('<div class="headerText"></div>');
     $headerText.text('DREAD GULCH INFORMATION PAMPHLET');
-    $headerText.appendTo($header);    
+    $headerText.appendTo($header);
 
     var $content = $('<div class="content"></div>')
     $content.appendTo($app);
@@ -23,18 +23,18 @@ $(function() {
 
         var regions = Object.keys(gangData);
         regions.forEach(function(region) {
-            
+
             var $card = $(`<div class="card" id="${region}"></div>`)
             $card.appendTo($content);
 
             var $titleRow = $('<div class="regionTitleRow"></div>')
             $titleRow.appendTo($card);
-            
+
             var $expandBtn = $('<button class="regionExpandBtn"></button>')
             $expandBtn.html('&#8594');
             $expandBtn.count = 0;
             $expandBtn.appendTo($titleRow)
-            $expandBtn.on('click', function() {
+            $card.on('click', function() {
                 if ($expandBtn.count % 2 === 0) {
                     $expandBtn.html('&#8595');
                     $expandBtn.count++;
@@ -50,9 +50,9 @@ $(function() {
 
             renderGangs($card);
 
-            //access children of region card
-            // console.log($card.children().slice(1))
+
         })
+            diceRoller($app);
     }
 
     var renderGangs = function(parent) {
@@ -79,7 +79,7 @@ $(function() {
         $statusText.text('Status');
         $statusText.appendTo($table);
 
-        
+
         var gangList = gangData[parent[0].id];
         gangList.forEach(function(gang) {
             var card = $(`<div class="subCard hidden ${parent[0].id}"></div>`)
@@ -87,14 +87,14 @@ $(function() {
 
             var $titleRow = $('<div class="bigTitle"></div>');
             $titleRow.appendTo(card);
-    
+
             var $subTitle = $('<div class="titleRow"></div>')
             $subTitle.appendTo($titleRow);
 
             var $expandBtn = $('<button class="gangExpandBtn">&rarr;</button>');
             $expandBtn.appendTo($subTitle);
             $expandBtn.count = 0;
-            $expandBtn.on('click', function() {
+            card.on('click', function() {
                 if ($expandBtn.count % 2 === 0) {
                     $expandBtn.html('&#8595');
                     $expandBtn.count++;
@@ -108,7 +108,7 @@ $(function() {
             var $title = $('<div class="cardTitle"></div>')
             $title.text(gang.name);
             $title.appendTo($subTitle);
-            
+
             var $gangLevel = $('<select></select')
 
             var $levelOne = $('<option value="1">I</option>')
@@ -159,7 +159,7 @@ $(function() {
                     $levelFive.attr('selected', 'selected');
                     gang.tier = 5;
                 }
-                
+
             })
 
             if (gang.score === 1) {
@@ -231,23 +231,66 @@ $(function() {
                 newLine.text(line);
                 newLine.appendTo($cardContent);
             })
-
-            //access content div
-            // console.log(card.children()[1]);
-
         })
+    }
+
+    var diceRoller = function(parent) {
+        var $diceBox = $('<div class="diceRoller"></div>');
+        $diceBox.appendTo(parent);
+
+        var $diceTitle = $('<div></div>');
+        $diceTitle.text('Dice Roller');
+        $diceTitle.appendTo($diceBox);
+
+        var $rollRow = $('<div class="rollRow"></div>')
+        $rollRow.appendTo($diceBox);
+
+        var $numberInput = $('<input id="diceAmt" type="number" name="diceAmt"></input>')
+        $numberInput.appendTo($rollRow);
+
+        var $rollBtn = $('<button class="rollBtn">Roll!</button>')
+        $rollBtn.appendTo($rollRow);
+        $rollBtn.on('click', function() {
+            rollDice($numberInput.val());
+        })
+
+        var $resultsRow = $('<div id="resultsRow"></div>');
+        $resultsRow.html('Nothing rolled yet.')
+        $resultsRow.appendTo($diceBox);
+
     }
 
     renderRegions();
 
-    var $regionCards = $('.regionExpandBtn');
+    var rollDice = function(value) {
+        var res = [];
+        for (var i = 0; i < value; i++) {
+            var roll = Math.floor(Math.random() * 6) + 1;
+            res.push(roll);
+        }
+        var $resultsRow = $('#resultsRow');
+        $resultsRow.html('');
+        res.sort();
+        res.forEach(function(item) {
+            var $die = $('<div></div>')
+            $die.attr({
+                'class': 'dice' + item,
+            })
+            $die.text(item);
+            $die.appendTo($resultsRow)
+        })
+
+        return res.sort();
+    }
+
+    var $regionCards = $('.card');
     $regionCards.on('click', function(event) {
         var card = $(event.target.parentElement.parentElement.children);
         card = card.slice(1);
         card.toggleClass('show');
     })
 
-    var $gangCards = $('.gangExpandBtn');
+    var $gangCards = $('.subCard');
     $gangCards.on('click', function(event) {
         var card = $(event.target.parentElement.parentElement.parentElement.children[1].children);
         card.toggleClass('show');
@@ -255,27 +298,6 @@ $(function() {
 
 
 })
-//leader box in title of gang card;
-    //is actually an input field with the value of whatever leader exists on gang data page;
-    //onChange handler 
-        //update gang.leader with value of input field
-
-//status box in title of card;
-    //expanded reveals a toggle for Strong / Weak
-        //toggle updates gang.hold to be 'S' or 'W' depending on the side.
-
-//rep box in title of card
-    // plus minus buttons when expanded
-    //also, an option to 'join'
-        //joining changes join text to joined;
-        //check entire list of gangs and find if any say joined:
-            //if it does:
-                //give prompt: already in gang (give gang name); do you want to leave and join (new gang)?
-                    //if yes:
-                        //put former group's 'joined' to false;
-                    //put new group's 'joined' to true;
-            //if it doesnt:
-                //put group's 'joined' to true;
 
 // make a renderer at bottom of screen for friendly factions
     //searches for any rep > 0

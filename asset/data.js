@@ -159,8 +159,8 @@ var gangData = {
         ],
           notes: '',
         },
-        
-        
+
+
     ],
     "Crimson Downs": [
         {
@@ -438,7 +438,7 @@ var gangData = {
     },
     {
         name: '',
-        leader: '', 
+        leader: '',
         score: 3,
         tier: 'III',
         hold: 'S',
@@ -473,7 +473,7 @@ var gangData = {
         notes: '',
     },
 ],
-    "Deadroost": [        
+    "Deadroost": [
         {
         name: '',
         leader: '',
