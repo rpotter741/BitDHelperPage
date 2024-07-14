@@ -30,19 +30,8 @@ $(function() {
             var $titleRow = $('<div class="regionTitleRow"></div>')
             $titleRow.appendTo($card);
 
-            var $expandBtn = $('<button class="regionExpandBtn"></button>')
-            $expandBtn.html('&#8594');
-            $expandBtn.count = 0;
+            var $expandBtn = $('<i class="regionExpandBtn fa-solid fa-arrow-right"></i>')
             $expandBtn.appendTo($titleRow)
-            $card.on('click', function() {
-                if ($expandBtn.count % 2 === 0) {
-                    $expandBtn.html('&#8595');
-                    $expandBtn.count++;
-                } else {
-                    $expandBtn.html('&#8594')
-                    $expandBtn.count++
-                }
-            })
 
             var $title = $('<div class="cardTitle"></div>')
             $title.text(`${region}`);
@@ -91,19 +80,8 @@ $(function() {
             var $subTitle = $('<div class="titleRow"></div>')
             $subTitle.appendTo($titleRow);
 
-            var $expandBtn = $('<button class="gangExpandBtn">&rarr;</button>');
+            var $expandBtn = $('<i class="gangExpandBtn fa-solid fa-arrow-right"></i>');
             $expandBtn.appendTo($subTitle);
-            $expandBtn.count = 0;
-            card.on('click', function() {
-                if ($expandBtn.count % 2 === 0) {
-                    $expandBtn.html('&#8595');
-                    $expandBtn.count++;
-                } else {
-                    $expandBtn.html('&#8594')
-                    $expandBtn.count++
-                }
-            })
-
 
             var $title = $('<div class="cardTitle"></div>')
             $title.text(gang.name);
@@ -283,17 +261,49 @@ $(function() {
         return res.sort();
     }
 
-    var $regionCards = $('.card');
+    var $regionCards = $('.regionTitleRow');
     $regionCards.on('click', function(event) {
-        var card = $(event.target.parentElement.parentElement.children);
-        card = card.slice(1);
-        card.toggleClass('show');
+        var $cards, $expandBtn, $header;
+        if ($(event.target).hasClass('card')) {
+            $cards = $(event.target).children('.subCard')
+            $header = $(event.target.children('.headerRow'))
+        } else {
+            $cards = $(event.target).parents('.card').children('.subCard');
+            $header = $(event.target).parents('.card').children('.headerRow')
+        }
+        $cards.toggleClass('show');
+        $header.toggleClass('show');
+
+        if ($(event.target).hasClass('regionTitleRow')) {
+            $expandBtn = $(event.target).children('.regionExpandBtn')
+        } else if ($(event.target).hasClass('cardTitle')) {
+            $expandBtn = $(event.target).parents('.regionTitleRow').children('.regionExpandBtn');
+        } else if ($(event.target).hasClass('regionExpandBtn')) {
+            $expandBtn = $(event.target);
+        }
+
+        $expandBtn.toggleClass('fa-arrow-right');
+        $expandBtn.toggleClass('fa-arrow-down');
     })
 
-    var $gangCards = $('.subCard');
+    var $gangCards = $('.titleRow');
     $gangCards.on('click', function(event) {
-        var card = $(event.target.parentElement.parentElement.parentElement.children[1].children);
-        card.toggleClass('show');
+        var $cards, $expandBtn;
+        if ($(event.target).hasClass('subCard')) {
+            $cards = $(event.target).children('.cardContent').children();
+            $expandBtn = $(event.target).children('.titleRow').children('.gangExpandBtn');
+        } else if ($(event.target).hasClass('titleRow')) {
+            $cards = $(event.target).parents('.subCard').children('.cardContent').children();
+            $expandBtn = $(event.target).children('.gangExpandBtn');
+        } else if ($(event.target).hasClass('gangExpandBtn')) {
+            $cards = $(event.target).parents('.subCard').children('.cardContent').children();
+            $expandBtn = $(event.target);
+        }
+
+        $cards.toggleClass('show');
+        $expandBtn.toggleClass('fa-arrow-right');
+        $expandBtn.toggleClass('fa-arrow-down');
+
     })
 
 
