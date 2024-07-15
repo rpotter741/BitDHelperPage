@@ -736,4 +736,4 @@ var loadStorage = function() {
     }
 }
 
-export { gangData, saveData, setStorage, loadStorage }
+export { gangData, setStorage, loadStorage }
