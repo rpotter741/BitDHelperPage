@@ -723,4 +723,26 @@ var gangData = {
     ]
 }
 
-export { gangData}
+var userData = {};
+
+var saveData = function() {
+    userData = JSON.stringify(gangData);
+}
+
+var setStorage = function() {
+    localStorage.setItem('userData', userData);
+}
+
+var loadStorage = function() {
+    if (localStorage.getItem('userData')) {
+        gangData = JSON.parse(localStorage.getItem('userData'));
+    }
+}
+
+    //storage solution (temporary until learning stuff like servers and whatnot);
+    window.addEventListener('beforeunload', function() {
+        var userData = JSON.stringify(gangData);
+        localStorage.setItem('userData', userData)
+    })
+
+export { gangData, saveData, setStorage, loadStorage }

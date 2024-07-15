@@ -1,6 +1,9 @@
-import { gangData } from "../asset/data.js";
+import { gangData, loadStorage } from "../asset/data.js";
 
 $(function() {
+    //check storage and load if its there
+    loadStorage();
+
     var $app = $('#app');
     $app.html('');
 
@@ -70,6 +73,8 @@ $(function() {
 
 
         var gangList = gangData[parent[0].id];
+        console.log(gangData);
+        console.log(gangData[parent[0].id])
         gangList.forEach(function(gang) {
             var card = $(`<div class="subCard hidden ${parent[0].id}"></div>`)
             card.appendTo(parent);
@@ -223,7 +228,7 @@ $(function() {
         var $rollRow = $('<div class="rollRow"></div>')
         $rollRow.appendTo($diceBox);
 
-        var $numberInput = $('<input id="diceAmt" type="number" name="diceAmt"></input>')
+        var $numberInput = $('<input id="diceAmt" type="number" name="diceAmt" placeholder="Number of d6\'s to roll"></input>')
         $numberInput.appendTo($rollRow);
 
         var $rollBtn = $('<button class="rollBtn">Roll!</button>')
@@ -250,15 +255,30 @@ $(function() {
         $resultsRow.html('');
         res.sort();
         res.forEach(function(item) {
-            var $die = $('<div></div>')
+            var text;
+            console.log(item);
+            if (item === 1) {
+                text = 'one';
+            } else if (item === 2) {
+                text = 'two';
+            } else if (item === 3) {
+                text = 'three';
+            } else if (item === 4) {
+                text = 'four';
+            } else if (item === 5) {
+                text = 'five';
+            } else if (item === 6) {
+                text = 'six';
+            }
+
+            var $die = $('<i></i>')
             $die.attr({
-                'class': 'dice' + item,
+                'class': `fa-solid fa-dice-${text}`,
             })
-            $die.text(item);
             $die.appendTo($resultsRow)
         })
 
-        return res.sort();
+        return res;
     }
 
     var $regionCards = $('.regionTitleRow');
@@ -298,6 +318,9 @@ $(function() {
         } else if ($(event.target).hasClass('gangExpandBtn')) {
             $cards = $(event.target).parents('.subCard').children('.cardContent').children();
             $expandBtn = $(event.target);
+        } else if ($(event.target).hasClass('cardTitle')) {
+            $cards = $(event.target).parents('.subCard').children('.cardContent').children();
+            $expandBtn = $(event.target).parents('.titleRow').children('.gangExpandBtn');
         }
 
         $cards.toggleClass('show');
@@ -306,6 +329,10 @@ $(function() {
 
     })
 
+    window.addEventListener('beforeunload', function() {
+        saveData();
+        setStorage();
+    })
 
 })
 

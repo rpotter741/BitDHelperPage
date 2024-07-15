@@ -321,8 +321,10 @@ select {
     border: none;
     border-radius: 1rem;
     padding-left: 1rem;
+    margin: .5rem 0 .5rem 0;
     text-align: center;
     text-align-last: center;
+    width: 50%;
 }
 
 .rollBtn {
@@ -336,6 +338,7 @@ select {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    margin: .5rem;
 }
 
 
@@ -391,6 +394,7 @@ div[id="Quickstone"] {
 div[id="Rattlescar"] {
     /* background-color: white; */
 }
+
 
 
 
