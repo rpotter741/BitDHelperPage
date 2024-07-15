@@ -73,8 +73,6 @@ $(function() {
 
 
         var gangList = gangData[parent[0].id];
-        console.log(gangData);
-        console.log(gangData[parent[0].id])
         gangList.forEach(function(gang) {
             var card = $(`<div class="subCard hidden ${parent[0].id}"></div>`)
             card.appendTo(parent);
@@ -329,10 +327,7 @@ $(function() {
 
     })
 
-    window.addEventListener('beforeunload', function() {
-        saveData();
-        setStorage();
-    })
+    window.addEventListener('beforeunload', setStorage)
 
 })
 
