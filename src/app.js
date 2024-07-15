@@ -1,4 +1,4 @@
-import { gangData, loadStorage } from "../asset/data.js";
+import { gangData, setStorage, loadStorage } from "../asset/data.js";
 
 $(function() {
     //check storage and load if its there
