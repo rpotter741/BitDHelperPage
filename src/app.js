@@ -1,8 +1,6 @@
 import { gangData, setStorage, loadStorage } from "../asset/data.js";
-
+// loadStorage();
 $(function() {
-    //check storage and load if its there
-    loadStorage();
 
     var $app = $('#app');
     $app.html('');
@@ -206,11 +204,27 @@ $(function() {
             var $leaderText = $('<input type="text" class="leaderValue"></input>')
             $leaderText.val(gang.leader)
             $leaderText.appendTo($leaderRow);
+            $leaderText.on('change', function(event) {
+                var newName = event.target.value;
+                gang.leader = newName;
+            })
 
             gang.description.forEach(function(line) {
                 var newLine = $('<p class="hidden details"></p>');
                 newLine.text(line);
                 newLine.appendTo($cardContent);
+            })
+
+            var $notesHeader = $('<div class="hidden notesHeader"></div>');
+            $notesHeader.text('Notes');
+            $notesHeader.appendTo($cardContent);
+
+            var $notes = $('<textarea class="gangNotes hidden"></textarea>')
+            $notes.html(gang.notes)
+            $notes.appendTo($cardContent);
+            $notes.on('change', function(event) {
+                console.log(event.target.value);
+                gang.notes = event.target.value;
             })
         })
     }
@@ -254,7 +268,6 @@ $(function() {
         res.sort();
         res.forEach(function(item) {
             var text;
-            console.log(item);
             if (item === 1) {
                 text = 'one';
             } else if (item === 2) {

@@ -292,14 +292,6 @@ select {
 
 }
 
-.hidden {
-    display: none;
-}
-
-.hidden.show {
-    display: flex;
-
-}
 
 .diceRoller {
     display: flex;
@@ -341,6 +333,37 @@ select {
     margin: .5rem;
 }
 
+.notesHeader {
+    border-top: 1px solid black;
+    align-self: center;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    padding-top: .25rem;
+    margin-top: .25rem;
+}
+
+.gangNotes {
+    width: 90%;
+    resize: none;
+    overflow-y: scroll;
+    background-color: rgba(255, 243, 208, .5);
+    font-family: monospace;
+    border-radius: .5rem;
+    border: 1px solid #c5674a;
+    align-self: center;
+    padding: 0 .25rem;
+
+}
+
+.hidden {
+    display: none;
+}
+
+.hidden.show {
+    display: flex;
+
+}
 
 
 div[id="Skull Crags"] {
