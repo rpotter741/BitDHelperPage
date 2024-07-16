@@ -240,7 +240,7 @@ $(function() {
         var $rollRow = $('<div class="rollRow"></div>')
         $rollRow.appendTo($diceBox);
 
-        var $numberInput = $('<input id="diceAmt" type="number" name="diceAmt" placeholder="Number of d6\'s to roll"></input>')
+        var $numberInput = $('<input id="diceAmt" type="number" name="diceAmt" placeholder="Number of d6\'s"></input>')
         $numberInput.appendTo($rollRow);
 
         var $rollBtn = $('<button class="rollBtn">Roll!</button>')

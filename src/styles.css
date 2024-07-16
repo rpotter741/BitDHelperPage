@@ -312,7 +312,6 @@ select {
     background-color: rgba(200, 143, 108, .5);
     border: none;
     border-radius: 1rem;
-    padding-left: 1rem;
     margin: .5rem 0 .5rem 0;
     text-align: center;
     text-align-last: center;
@@ -330,7 +329,9 @@ select {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
-    margin: .5rem;
+    min-height: 1.5rem;
+    align-items: center;
+    justify-content: center;
 }
 
 .notesHeader {

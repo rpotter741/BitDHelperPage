@@ -107,10 +107,12 @@ var gangData = {
           leader: 'Alonzo Holden',
           score: 4,
           tier: 'IV',
-          hold: 'S',
+          hold: 'W',
           status: 0,
           description: [
-            ''
+            'Nestled between a continental divide of the warm valleys in Skull Crags and the cold plains of Silverhowl, the people of Windy Peaks are hardy and hearty.',
+            'Frequently harassed by the operations of the Skelebros, Windy Peaks is surrounded by walls battered by both wind and bones. They\'ve only lasted this long due to the presence of a Tech Broker.',
+            'Despite this, the curse that affects Windy Peaks is kept a strict secret to its residents and largely hidden from new residents moving in... until it\'s too late.',
           ],
           notes: '',
         },
@@ -122,18 +124,20 @@ var gangData = {
           hold: 'S',
           status: 0,
           description: [
-              ''
+              'A group of skeletal mauraders that harass the living both day and night, the Skelebros are a violent group often hired for their nearly-unmatched combat prowess.',
+              'Effective assassins and, under the best circumstances, tenuous allies, the Skelebros are best met with caution and lots of dynamite.'
           ],
           notes: '',
         },
         {
           name: 'People of Grimewood',
-          leader: 'Clarence Ewing',
+          leader: 'Salvador Moya',
           score: 3,
           tier: 'III',
           hold: 'S',
           status: 0,
           description: [
+            'Adjacent to the only known forest in Dread Gulch, the People of Grimewood are rife with alchemists, botanists, and other tradesmen.',
             ''
           ],
           notes: '',
@@ -218,7 +222,7 @@ var gangData = {
     "Scornglen": [
         {
           name: 'People of Charbury',
-          leader: 'Mayor Oliver Cobb',
+          leader: 'Oliver Cobb',
           score: 5,
           tier: 'V',
           hold: 'S',
@@ -354,7 +358,7 @@ var gangData = {
         },
         {
           name: 'Dustbound',
-          leader: '',
+          leader: 'Diego Gutierrez',
           score: 2,
           tier: 'II',
           hold: 'S',
@@ -368,7 +372,7 @@ var gangData = {
     "Gunhallow": [
         {
           name: 'Dastardly Bastards',
-          leader: 'The Gentleman',
+          leader: 'Lorenzo de la Cruz',
           score: 5,
           tier: 'V',
           hold: 'S',
@@ -518,7 +522,7 @@ var gangData = {
     "Mud Plains": [
         {
           name: 'Desert Hawks',
-          leader: 'Jerry Alston',
+          leader: 'Santiago Navarro',
           score: 3,
           tier: 'III',
           hold: 'S',
@@ -541,8 +545,8 @@ var gangData = {
           notes: '',
         },
         {
-          name: '',
-          leader: '',
+          name: 'Mud Lords',
+          leader: 'Umberto Garcia',
           score: 2,
           tier: 'II',
           hold: 'S',
@@ -553,8 +557,8 @@ var gangData = {
           notes: '',
         },
         {
-          name: '',
-          leader: '',
+          name: 'Carnivores',
+          leader: 'Butch Oakley',
           score: 1,
           tier: 'I',
           hold: 'S',
@@ -578,8 +582,8 @@ var gangData = {
           notes: '',
     },
     {
-          name: '',
-          leader: '',
+          name: 'Detection Rock Guild',
+          leader: 'Tae Felapas',
           score: 3,
           tier: 'III',
           hold: 'S',
@@ -590,8 +594,8 @@ var gangData = {
           notes: '',
     },
     {
-          name: '',
-          leader: '',
+          name: 'Sigmund\'s Raiders',
+          leader: 'Sigmund \'Lullaby\' Remus',
           score: 2,
           tier: 'II',
           hold: 'S',
@@ -602,8 +606,8 @@ var gangData = {
           notes: '',
     },
     {
-          name: '',
-          leader: '',
+          name: 'Gray Cobras',
+          leader: 'Lonnie \'The Snake\' Coleman',
           score: 1,
           tier: 'I',
           hold: 'S',
@@ -617,7 +621,7 @@ var gangData = {
     "Quickstone": [
         {
           name: 'People of Nethermoore',
-          leader: '',
+          leader: 'Pablo Valerio',
           score: 3,
           tier: 'III',
           hold: 'S',
@@ -629,7 +633,7 @@ var gangData = {
         },
       {
           name: 'People of Meckmire',
-          leader: '',
+          leader: 'Jerry Alston',
           score: 3,
           tier: 'III',
           hold: 'S',
@@ -640,8 +644,8 @@ var gangData = {
         notes: '',
     },
     {
-        name: '',
-        leader: '',
+        name: 'Coyote Rangers',
+        leader: 'Lester McCray',
         score: 3,
         tier: 'III',
         hold: 'S',
@@ -652,8 +656,8 @@ var gangData = {
         notes: '',
     },
     {
-        name: '',
-        leader: '',
+        name: 'Itchy Fingers',
+        leader: 'Nelson Mills',
         score: 2,
         tier: 'II',
         hold: 'S',
@@ -664,8 +668,8 @@ var gangData = {
         notes: '',
     },
     {
-        name: '',
-        leader: '',
+        name: 'Shadows of the Obelisk',
+        leader: 'Dave \'Smoke\' Shaw',
         score: 1,
         tier: 'I',
         hold: 'S',
@@ -678,8 +682,8 @@ var gangData = {
 ],
     "Rattlescar": [
         {
-            name: '',
-            leader: '',
+            name: 'Grave Zealots',
+            leader: 'Lawrence \'Rotflesh\' McDonald',
             score: 3,
             tier: 'III',
             hold: 'S',
@@ -691,37 +695,39 @@ var gangData = {
         },
         {
             name: 'People of Roctown',
-            leader: '',
+            leader: 'Clarence \'The Crusader\' Ewing',
             score: 2,
             tier: 'II',
             hold: 'S',
             status: 0,
             description: [
+                'Charged with protecting the rest of the desert from the undead masses that spill from Rattlescar, the People of Roctown are a grim and violent type.',
                 ''
             ],
             notes: '',
         },
         {
-            name: '',
-            leader: '',
+            name: 'Ghosts of the Shear',
+            leader: 'Ramon \'Wraith\' Munoz',
             score: 1,
             tier: 'I',
             hold: 'S',
             status: 0,
             description: [
-                ''
+                'Not all of the spirits trapped in Dread Gulch are animalistic and violent at every moment. The Ghosts of the Shear is made up of those spirits who look at their new form as an opportunity instead of a curse.',
+                'Without material needs, the Ghosts of the Shear have proven to be exemplary traders and thieves, utilizing their incorporeal form to sneak through defenses and vaults nigh undetected.'
             ],
             notes: '',
         },
         {
-            name: '',
-            leader: '',
+            name: 'Guides of the Dead',
+            leader: 'Juan Santalagros',
             score: 1,
             tier: 'I',
             hold: 'S',
             status: 0,
             description: [
-                ''
+                'The Guides of the Dead is a small faction focused on escorting or transporting those undead who maintain their own control out of Rattlescar and into the Gulch.'
             ],
             notes: '',
         },
