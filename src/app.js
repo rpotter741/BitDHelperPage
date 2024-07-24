@@ -1,5 +1,5 @@
 import { gangData, setStorage, loadStorage } from "../asset/data.js";
-// loadStorage();
+loadStorage();
 $(function() {
 
     var $app = $('#app');
@@ -84,8 +84,11 @@ $(function() {
             var $expandBtn = $('<i class="gangExpandBtn fa-solid fa-arrow-right"></i>');
             $expandBtn.appendTo($subTitle);
 
-            var $title = $('<div class="cardTitle"></div>')
-            $title.text(gang.name);
+            var $title = $('<textarea class="gangName" id="' + gang.name + '"></textarea>')
+            $title.val(gang.name);
+            $title.on('change', function(event) {
+                gang.name = event.target.value;
+            })
             $title.appendTo($subTitle);
 
             var $gangLevel = $('<select></select')

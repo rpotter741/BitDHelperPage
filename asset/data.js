@@ -483,7 +483,7 @@ var gangData = {
 ],
     "Deadroost": [
         {
-          name: 'Church of Splinters',
+          name: 'Cult of Deformity',
           leader: 'Samuel Riddle',
           score: 4,
           tier: 'IV',
